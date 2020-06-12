@@ -1,0 +1,2 @@
+# laba_min
+hello
