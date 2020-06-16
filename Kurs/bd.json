@@ -1,0 +1,32 @@
+$jdb  = new Jsondb($path);
+$jdb->create($table, $keys);
+$keys = Array(
+	'id'=>Array('auto_increment'),
+	'title'=>Array('default'=>'habrahabr'), 
+	'posts', 
+            'userId'
+);
+$jdb->create('habr', $keys);
+$jdb->select($select, $table, $rules);
+$rules = Array(
+		'where'=>Array(
+				'id'=>Array(1,2,3,4,6,7,10),
+				'name'=>'habr'
+			),
+		'order'=>Array('id','desc'),
+		'limit'=>5
+	);
+$jdb->select('*','habr',$rules);
+$rules = Array(
+		'order'=>Array('rand()'),
+		'limit'=>Array(10,4)
+	);
+$select = Array('id','title','userId'); # все равно, что $select ='id,title, userId';
+$jdb->select($select, 'habr', $rules);
+$fdb->Insert($table, $data);
+$data = Array('title'=>'new title', 'userId'=>6431);
+$jdb->insert('habr', $data);
+$jdb->update($table, $data, $where);
+$data = Array('title'=>'updated title');
+$where = Array('title'=>'new title', 'userId'=>6431);
+$jdb->update('habr', $data, $where);
