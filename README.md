@@ -1,2 +1,1 @@
-# laba_min
-hello
+# Laan
